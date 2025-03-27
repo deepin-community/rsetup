@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -e
+
+action="$1"
+
+if [ "$action" = configure ]
+then
+    if [ ! -e /config ]
+    then
+        mkdir /config
+    fi
+    if [ ! -e /config/config.txt ]
+    then
+        cp /usr/share/doc/rsetup/config.txt /config/config.txt
+    fi
+    if [ ! -e /boot ]
+    then
+        mkdir /boot
+    fi
+    if [ ! -e /boot/hw_intfc.conf ]
+    then
+        cp /usr/share/doc/rsetup/hw_intfc.conf /boot/hw_intfc.conf
+    fi
+    if [ ! -e /boot/uEnv.txt ]
+    then
+        cp /usr/share/doc/rsetup/uEnv.txt /boot/uEnv.txt
+    fi
+fi
+
+#DEBHELPER#
+
+exit 0

@@ -1,15 +1,114 @@
-Source: template-repository
-Section: unknown
-Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Source: rsetup
+Maintainer: "Radxa Computer Co., Ltd" <dev@radxa.com>
+Section: admin
+Priority: standard
+Standards-Version: 4.6.0
+Build-Depends: debhelper (>=12~),
+               devscripts,
+               lintian,
+               dh-exec,
+               pandoc,
+               shellcheck,
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: rsetup
+Architecture: all
+Section: admin
+Priority: standard
+Essential: yes
+Depends: device-tree-compiler,
+         gdisk,
+         jq,
+         librtui (>= 0.1.6),
+         parted,
+         pkexec | policykit-1 (<< 122-1),
+         python3,
+         python3-yaml,
+         u-boot-menu,
+         ${misc:Depends},
+Suggests: aicrf-test,
+          gpiod,
+          sudo,
+          x-terminal-emulator,
+Description: Radxa system setup utility
+ Radxa system setup utility (rsetup) provides an user friendly menu to
+ perform many essential system configuration tasks. It also provides
+ an on-boot configuration service to allow customization.
+
+Package: rsetup-config-thermal-governor-step-wise
+Architecture: all
+Section: admin
+Priority: standard
+Depends: rsetup (= ${binary:Version}),
+         ${misc:Depends},
+Description: Radxa system config - Set thermal_governor to step_wise
+ This package sets thermal_governor to step_wise on boot.
+
+Package: rsetup-config-first-boot
+Architecture: all
+Section: admin
+Priority: standard
+Depends: rsetup (= ${binary:Version}),
+         ${misc:Depends},
+Description: Radxa system config - First boot configuration
+ This package contains the default first boot script.
+
+Package: rsetup-config-aic8800-ttys1
+Architecture: all
+Section: admin
+Priority: standard
+Depends: rsetup (= ${binary:Version}),
+         ${misc:Depends},
+Provides: rsetup-config-hciattach-ttys1 (= 0.4.0)
+Conflicts: rsetup-config-hciattach-ttys1 (<< 0.4.0)
+Replaces: rsetup-config-hciattach-ttys1 (<< 0.4.0)
+Description: Radxa system config - Attach AIC8800 Bluetooth on /dev/ttyS1
+ This package attaches AIC8800 Bluetooth on /dev/ttyS1 on boot.
+
+Package: rsetup-config-rgb0-rainbow
+Architecture: all
+Section: admin
+Priority: standard
+Depends: rsetup (= ${binary:Version}),
+         ${misc:Depends},
+Description: Radxa system config - Set rgb0 LED's pattern to rainbow
+ This package set rgb0 LED's pattern to rainbow on boot.
+
+Package: rsetup-config-wan-led-eth0
+Architecture: all
+Section: admin
+Priority: standard
+Depends: rsetup (= ${binary:Version}),
+         ${misc:Depends},
+Provides: rsetup-config-wan-led-netdev
+Description: Radxa system config - Set wan-led LED's netdev to eth0
+ This package set wan-led LED's netdev to eth0 on boot.
+
+Package: rsetup-config-wan-led-enp1s0
+Architecture: all
+Section: admin
+Priority: standard
+Depends: rsetup (= ${binary:Version}),
+         ${misc:Depends},
+Provides: rsetup-config-wan-led-netdev
+Description: Radxa system config - Set wan-led LED's netdev to enp1s0
+ This package set wan-led LED's netdev to enp1s0 on boot.
+
+Package: rsetup-config-lan-led-eth0
+Architecture: all
+Section: admin
+Priority: standard
+Depends: rsetup (= ${binary:Version}),
+         ${misc:Depends},
+Provides: rsetup-config-lan-led-netdev
+Description: Radxa system config - Set lan-led LED's netdev to eth0
+ This package set lan-led LED's netdev to eth0 on boot.
+
+Package: rsetup-config-lan-led-enp1s0
+Architecture: all
+Section: admin
+Priority: standard
+Depends: rsetup (= ${binary:Version}),
+         ${misc:Depends},
+Provides: rsetup-config-lan-led-netdev
+Description: Radxa system config - Set lan-led LED's netdev to enp1s0
+ This package set lan-led LED's netdev to enp1s0 on boot.
