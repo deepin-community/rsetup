@@ -1,0 +1,10 @@
+# Small bug number is very probable for us.
+rsetup: improbable-bug-number-in-closes
+
+# We depends on x-terminal-emulator
+rsetup: desktop-command-not-in-package
+
+rsetup: groff-message
+
+# rsetup needs to be installed early for mmdebstrap
+rsetup: new-essential-package
