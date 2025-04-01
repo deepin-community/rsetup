@@ -1,3 +1,9 @@
+rsetup (0.4.12-1deepin1) unstable; urgency=medium
+
+  * Section: admin to misc.
+
+ -- lichenggang <lichenggang@deepin.org>  Tue, 01 Apr 2025 10:37:06 +0800
+
 rsetup (0.4.12) jammy; urgency=medium
 
   [ Chen Jiali ]
