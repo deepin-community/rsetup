@@ -1,6 +1,6 @@
 Source: rsetup
 Maintainer: "Radxa Computer Co., Ltd" <dev@radxa.com>
-Section: admin
+Section: misc
 Priority: standard
 Standards-Version: 4.6.0
 Build-Depends: debhelper (>=12~),
@@ -12,9 +12,8 @@ Build-Depends: debhelper (>=12~),
 
 Package: rsetup
 Architecture: all
-Section: admin
+Section: misc
 Priority: standard
-Essential: yes
 Depends: device-tree-compiler,
          gdisk,
          jq,
@@ -36,7 +35,7 @@ Description: Radxa system setup utility
 
 Package: rsetup-config-thermal-governor-step-wise
 Architecture: all
-Section: admin
+Section: misc
 Priority: standard
 Depends: rsetup (= ${binary:Version}),
          ${misc:Depends},
@@ -45,7 +44,7 @@ Description: Radxa system config - Set thermal_governor to step_wise
 
 Package: rsetup-config-first-boot
 Architecture: all
-Section: admin
+Section: misc
 Priority: standard
 Depends: rsetup (= ${binary:Version}),
          ${misc:Depends},
@@ -54,7 +53,7 @@ Description: Radxa system config - First boot configuration
 
 Package: rsetup-config-aic8800-ttys1
 Architecture: all
-Section: admin
+Section: misc
 Priority: standard
 Depends: rsetup (= ${binary:Version}),
          ${misc:Depends},
@@ -66,7 +65,7 @@ Description: Radxa system config - Attach AIC8800 Bluetooth on /dev/ttyS1
 
 Package: rsetup-config-rgb0-rainbow
 Architecture: all
-Section: admin
+Section: misc
 Priority: standard
 Depends: rsetup (= ${binary:Version}),
          ${misc:Depends},
@@ -75,7 +74,7 @@ Description: Radxa system config - Set rgb0 LED's pattern to rainbow
 
 Package: rsetup-config-wan-led-eth0
 Architecture: all
-Section: admin
+Section: misc
 Priority: standard
 Depends: rsetup (= ${binary:Version}),
          ${misc:Depends},
@@ -85,7 +84,7 @@ Description: Radxa system config - Set wan-led LED's netdev to eth0
 
 Package: rsetup-config-wan-led-enp1s0
 Architecture: all
-Section: admin
+Section: misc
 Priority: standard
 Depends: rsetup (= ${binary:Version}),
          ${misc:Depends},
@@ -95,7 +94,7 @@ Description: Radxa system config - Set wan-led LED's netdev to enp1s0
 
 Package: rsetup-config-lan-led-eth0
 Architecture: all
-Section: admin
+Section: misc
 Priority: standard
 Depends: rsetup (= ${binary:Version}),
          ${misc:Depends},
@@ -105,7 +104,7 @@ Description: Radxa system config - Set lan-led LED's netdev to eth0
 
 Package: rsetup-config-lan-led-enp1s0
 Architecture: all
-Section: admin
+Section: misc
 Priority: standard
 Depends: rsetup (= ${binary:Version}),
          ${misc:Depends},
